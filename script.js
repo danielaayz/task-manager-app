@@ -22,15 +22,16 @@ function askUserName() {
 function menu() {
    const choice = parseInt(
       prompt(
-         `Please chooose a number from the menu and type it to the input field:
+         `Please choose a number from the menu and type it to the input field:
+         
           1 = Add a task
           2 = Complete a task
           3 = List all tasks
-          4 = List completed tasks`
+          4 = List completed tasks
+          5 = Exit`
       )
    );
-   // add some more logic here:
-   // choose between if/else or switch
+
    switch (choice) {
       case 1:
          alert("You've chosen to add a new task");
@@ -38,7 +39,6 @@ function menu() {
          break;
       case 2:
          alert("You've chosen to complete a task");
-         console.log(taskManager.tasks);
          taskManager.completeTask();
          break;
       case 3:
@@ -49,16 +49,16 @@ function menu() {
          alert("You've chosen to list all completed tasks");
          taskManager.listCompletedTasks();
          break;
+      case 5:
+         alert("You've chosen to exit - Goodbye!");
+         return;
+         break;
       default:
          alert(
-            "Sorry, you need to choose a number between 1 - 4. Please try again!"
+            "Sorry, you need to choose a number between 1 - 5. Please try again!"
          );
    }
-   // I chose the switch statement because it checks the value of a variable and compares it with all the cases. Since the user is given the option to chose from the
-   // menu to be executed, the input in the prompt will.  integer object 1, 2, 3 and 4. It checks only equality expression.
-   // The switch statement evaluates a given expression, which can be a variable or a value, and compares it to several possible cases.
-   // If the value of the expression matches one of the cases, the associated code block (a set of instructions) is executed.
-   //console.log(choice);
+   // I chose the switch statement because it checks the value of a variable and compares it with all the cases.
 }
 
 menu();
