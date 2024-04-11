@@ -1,5 +1,29 @@
 const taskManager = {
-   // fill up with properties
+   addTasks: function (addNewTask) {
+      // how to get the description of the task from the user?
+      const taskInput = prompt("Enter a task description:");
+      //console.log(taskInput)
+
+      // is there anything that can go wrong with the input from the user?
+      // we want to make sure that the user does not add an empty string
+      if (taskInput.trim() === "") {
+         alert(`Task description cannot be empty`);
+         // call for the addTask-function to run again
+         this.addTasks();
+      }
+
+      // define the task object
+      const newTask = {
+         id: taskId++,
+         description: taskInput,
+         isCompleted: false,
+      };
+      // adds the task object onto the tasks array
+      this.tasks.push(newTask);
+      alert(`Task added`);
+      // call for the menu function to run again
+      menu();
+   },
 };
 
 // function for asking the user to fill in their name
@@ -23,7 +47,7 @@ function menu() {
    const choice = parseInt(
       prompt(
          `Please choose a number from the menu and type it to the input field:
-         
+
           1 = Add a task
           2 = Complete a task
           3 = List all tasks
