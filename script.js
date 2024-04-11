@@ -1,4 +1,6 @@
 const taskManager = {
+   tasks: [],
+
    addTasks: function (addNewTask) {
       // how to get the description of the task from the user?
       const taskInput = prompt("Enter a task description:");
