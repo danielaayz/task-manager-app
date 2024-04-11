@@ -26,6 +26,26 @@ const taskManager = {
       // call for the menu function to run again
       menu();
    },
+
+   // a function that lists all tasks
+   listAllTasks: function () {
+      // if there arent any tasks in the array
+      if (this.tasks.length === 0) {
+         alert(`There are no tasks to show`);
+         menu();
+      }
+
+      let allTasks = "";
+      this.tasks.forEach(function (task) {
+         allTasks += `
+            Id: ${task.id}  
+            Description: ${task.description}  
+            Completion Status: ${task.isCompleted}`;
+      });
+
+      alert(`List of all tasks: \n${allTasks}`);
+      menu();
+   },
 };
 
 // function for asking the user to fill in their name
